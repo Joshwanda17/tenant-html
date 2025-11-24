@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=.0">
+        <title>{{ Tenant hub }}</title>
+
+        <link rel="stylesheet" href="/static/css/base.css">
+        <link rel="stylesheet" href="/static/css/layout.css">
+        <link rel="stylesheet" href="/static/stylesheet/components.css">
+
+        <style>
+            /* Primary theme color */
+            :root {
+                --primary-color: #4a148c;
+                --primary-dark: #380d66;
+                --primary-light: #7c43bd;
+                --background: #f9f9fb;
+                --text-color: #333;
+            }
+
+            body {
+                margin: 0;
+                background: var(--background);
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                color: var(--text-color);
+            }
+
+            /* Layout container */
+            .layout {
+                display: flex;
+                min-height: 100vh;
+                width: 100%
+            }
+
+            /* Sidebar */
+            .sidebar {
+                width: 240px;
+                background: var(--primary);
+                color: #fff;
+                padding: 20px 16px;
+                position: sticky;
+                top: 0;
+                height: 100vh;
+            }
+            .sidebar a {
+                color: #fff;
+                text-decoration: none;
+                display: block;
+                padding: 10px 12px;
+                border-radius: 6px;
+                transition: 0.2s ease;
+            }
+
+            .sidebar a:hover {
+                background: var(--primary-light);
+            }
+
+            .sidebar .logo {
+                width: 42px;
+                margin-bottom: 15px;
+            }
+
+            /* Header ribbon */
+            header {
+                background: var(--primary);
+                color: #fff;
+                padding: 14px 20px;
+                font-size: 18px;
+                font-weight: 500;
+                position: sticky;
+                top: 0;
+                z-index: 50;
+            }
+
+            /* Main content */
+            .main-area {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .page-container {
+                padding: 24px 28px
+            }
+
+            .page-title {
+                font-size: 24px;
+                font-weight: 600;
+                margin-bottom: 20px;
+                color: var(--primary-dark);
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="layout">
+
+            {% include "includes/sidebar.html" %}
+
+            <div class="main-area">
+
+                {% include "includes/header.html" %}
+
+                {% include "includes/breadcrumbs.html" %}
+
+                <main class="page-container>
+                    {% block content %}
+                    {% endblock %}
+                </main>
+
+            </div>
+        </div>
+
+        
+    </body>
+</html>
