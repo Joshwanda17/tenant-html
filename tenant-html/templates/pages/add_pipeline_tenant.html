@@ -30,6 +30,57 @@
      <div class="card form-card">
 
         <h2 class="form-title">Add Pipeline Tenant</h2>
-        <p class="form-desc"></p>
+        <p class="form-desc">All fields are required to earn your UGX 100 reward.</p>
+
+        <form action="/add_pipeline_tenant" method="POST">
+
+            <!-- REFERRER INFO -->
+             <div class="form-section">
+                <h3 class="section-title">Your information (Reward Receiver)</h3>
+
+                <label>Your Full Name *</label>
+                <input type="text" name="referrer_name" required placeholder="Enter your full name" required>
+
+                <label>Your Phone number *</label>
+                <input type="text" name="referrer_phone" required placeholder="0700000000">
+             </div>
+
+             <!-- TENANT INFO -->
+              <div class="form-section">
+                <h3 class="section-title">Tenant Information</h3>
+
+                <label>Tenant Full Name *</label>
+                <input type="text" name="tenant_name" required placeholder="Enter Full Name" required>
+
+                <lable>Contact Number</lable>
+                <input type="text" name="tenant_contact" required placeholder="0700000000">
+
+                <label>Expected Rent (UGX)</label>
+                <input type="number" name="rent_amount" placeholder="50000">
+
+                <label>Address / Location</label>
+                <input type="text" name="address" placeholder="Location or landmark" required>
+
+                <label>District</label>
+                <selectname="district" required>
+                    <option value="">Select District</option>
+                    {% for district in districts %}
+                    <option value="{{ district }}">{{ district }}</option>
+                    {% endfor %}
+                </select>
+              </div>
+              
+              <!-- OPTIONAL AGENT -->
+               <div class="form-section">
+                <h3 class="section-title">Agent Assignment (Optional)</h3>
+
+                <label>Assign to Agent</label>
+                <selectname="agent_name">
+                    <option value="">-- Optional --</option>
+                    {% for agent in agents %}
+                    <option value="{{ agent.name }}">{{ agent.name }}</option>
+                </selectname>
+               </div>
+        </form>
      </div> 
 </div>
