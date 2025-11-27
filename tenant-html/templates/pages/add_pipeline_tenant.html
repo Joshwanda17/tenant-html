@@ -15,8 +15,21 @@
      <div class="card earnings-card">
         <div class="earnings-grid">
             <div class="earnings-box">
-                <p></p>
+                <p class="label">Tenants Added</p>
+                <p class="value">{{ tenants_added }}</p>
+            </div>
+            <div class="earnings-box">
+                <p class="label">Total Earned (UGX)</p>
+                <P class="value">{{ total_earned }}</P>
             </div>
         </div>
      </div>
+     {% endif %}
+
+     <!-- FORM CARD -->
+     <div class="card form-card">
+
+        <h2 class="form-title">Add Pipeline Tenant</h2>
+        <p class="form-desc"></p>
+     </div> 
 </div>
